@@ -10,16 +10,16 @@ import { resumirCarrito } from '../src/services/carrito.ts';
 
 describe('Trampas', () => {
   it('trampa 1: rechaza una nota de 15', () => {
-    expect(calcularPromedio([15])).toThrow(RangeError);
+    expect(() => calcularPromedio([15])).toThrow(RangeError);
   });
 
   it('trampa 2: resume un carrito con un solo producto', () => {
     const resumen = resumirCarrito([{ nombre: 'Pan', precio: 2000, cantidad: 1 }]);
-    expect(resumen).toBe({ cantidadItems: 1, total: 2000 });
+    expect(resumen).toEqual({ cantidadItems: 1, total: 2000 });
   });
 
-  it('trampa 3: el chequeo de salud responde 200', () => {
-    const respuesta = request(app).get('/healthy');
+  it('trampa 3: el chequeo de salud responde 200', async () => {
+    const respuesta = await request(app).get('/healthy');
     expect(respuesta.status).toBe(200);
   });
 });

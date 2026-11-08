@@ -1,7 +1,6 @@
 // EJERCICIO 4: pruebas UNITARIAS del carrito. Practicás toBe vs toEqual.
 import { describe, expect, it } from 'vitest';
 import { calcularTotal, resumirCarrito, type Item } from '../src/services/carrito.ts';
-import { resourceUsage } from 'process';
 
 // Datos de prueba que podés reutilizar
 const yerba: Item = { nombre: 'Yerba', precio: 3000, cantidad: 2 };
@@ -49,7 +48,7 @@ describe('resumirCarrito', () => {
   // Pista: el resultado es un OBJETO. ¿toBe o toEqual?
   // it.todo('devuelve { cantidadItems: 3, total: 7500 } para yerba + azúcar');
   it("devuelve {cantidaditems: 3, total:7500} para yerba + azucar", () => {
-    expect(resumirCarrito([yerba, azucar])).toEqual({ cantidadItems: 3, total:7500 }) //no se hacer esto, o sea toEqual y con objetos
+    expect(resumirCarrito([yerba, azucar])).toEqual({ cantidadItems: 3, total:7500 }) //ya se hacerlo :)
   })
 
   // it.todo('devuelve { cantidadItems: 0, total: 0 } para un carrito vacío');
