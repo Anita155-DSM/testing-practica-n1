@@ -24,7 +24,7 @@ function validarItem(item: Item): void {
     throw new RangeError(`Precio inválido en "${item.nombre}"`);
   }
 
-  if (!Number.isInteger(item.cantidad) || item.cantidad < 0) {
+  if (!Number.isInteger(item.cantidad) || item.cantidad <= 0) {
     throw new RangeError(`Cantidad inválida en "${item.nombre}"`);
   }
 }
