@@ -24,7 +24,7 @@ describe('API de notas', () => {
 
   // it.todo('POST /api/notas/evaluar con [7, 8, 9] responde 200 y { promedio: 8, aprobado: true }');
   it("post en /api/notas/evaluar responde con 200 y devuelve { promedio: 8, aprobado: true }", async () => {
-    const respuesta = await request(app).post("/api/notas/evaluar").send([ {notas: [7,8,9]}])
+    const respuesta = await request(app).post("/api/notas/evaluar").send({notas: [7,8,9]})
     expect(respuesta.status).toBe(200)
     expect(respuesta.body).toEqual({ promedio: 8, aprobado: true })
   })
@@ -33,7 +33,7 @@ describe('API de notas', () => {
   it("post en api/notas/evaluar con [2, 4] responde 200 y aprobado false", async () => {
     const respuesta = await request(app).post("/api/notas/evaluar").send({notas: [2,4]})
     expect(respuesta.status).toBe(200)
-    expect(respuesta.body).toEqual({ aprobado: false })
+    expect(respuesta.body).toEqual({ promedio: 3, aprobado: false })
   })
 
   // it.todo('POST /api/notas/evaluar con [8, 15] responde 400 y el body tiene la propiedad "error"');
